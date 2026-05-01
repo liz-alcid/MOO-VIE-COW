@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOO-vie Cow 🐄</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🐄 MOO-vie Cow</a>
+    <a href="/watchlist">📋 My Watchlist</a>
+    <a href="/movies/history">🕓 History</a>
+  </nav>
+
+  <!-- animated cow decorations -->
+  <div class="cow-deco" style="animation-delay: 0s;">🐄</div>
+  <div class="cow-deco" style="animation-delay: 9s; bottom: 68px; font-size:2.2rem;">🐄</div>
+
+  <div class="page">
+
+    <div class="hero">
+      <h1 class="hero-title">MOO-VIE COW</h1>
+      <p class="hero-sub">Watcha in the mood for? <span class="cow-emoji">🐄</span></p>
+    </div>
+
+    <!-- search -->
+    <div class="card">
+      <form class="search-form" action="/movies/search" method="POST">
+        <input
+          class="search-input"
+          type="text"
+          name="movieTitle"
+          placeholder="Type a movie or show title..."
+          autocomplete="off"
+          required
+        />
+        <button class="btn" type="submit">GO 🐄</button>
+      </form>
+      <p style="text-align:center; margin-top:14px; font-size:0.9rem; color:#aaa;">
+        We'll find it on Netflix, Hulu, Max, Disney+, Prime, Paramount+ or Apple TV+
+      </p>
+    </div>
+
+    <!-- add to watchlist -->
+    <div class="card">
+      <h2 class="section-title">📋 Save to My Watchlist</h2>
+      <form class="watchlist-form" action="/watchlist/add" method="POST">
+        <input
+          type="text"
+          name="movieTitle"
+          placeholder="Movie or show title"
+          required
+        />
+        <textarea
+          name="notes"
+          rows="2"
+          placeholder="Notes (optional) — e.g. 'Watch with mom' or 'Need to finish season 2'"
+        ></textarea>
+        <button class="btn btn-green" type="submit">Add to Watchlist 🌿</button>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>

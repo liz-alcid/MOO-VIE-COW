@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Found — MOO-vie Cow 🐄</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .notfound-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      animation: fade-in 0.2s ease;
+    }
+
+    .notfound-modal {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      border: 3px solid #ffcccc;
+      animation: pop-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-align: center;
+    }
+
+    .notfound-emoji {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .notfound-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      color: #e05;
+      margin-bottom: 8px;
+    }
+
+    .notfound-movie {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--pink);
+      margin-bottom: 12px;
+    }
+
+    .notfound-msg {
+      font-size: 0.98rem;
+      color: #888;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .notfound-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🐄 MOO-vie Cow</a>
+    <a href="/watchlist">📋 My Watchlist</a>
+    <a href="/movies/history">🕓 History</a>
+  </nav>
+
+  <!-- blurred background -->
+  <div class="page" style="filter: blur(2px); pointer-events: none;">
+    <div class="hero">
+      <h1 class="hero-title">MOO-VIE COW</h1>
+      <p class="hero-sub">Watcha in the mood for? 🐄</p>
+    </div>
+  </div>
+
+  <!-- not found display -->
+  <div class="notfound-overlay">
+    <div class="notfound-modal">
+      <span class="notfound-emoji">🐄🌾</span>
+      <div class="notfound-title">No Grass to Graze Here!</div>
+      <div class="notfound-movie">"<%= movieTitle %>"</div>
+      <p class="notfound-msg">
+        This movie or show isn't on any streaming platform right now.
+        Save it to your watchlist and check back later!
+      </p>
+      <div class="notfound-actions">
+        <a href="/" class="btn">🔍 Search Again</a>
+        <form action="/watchlist/add" method="POST">
+          <input type="hidden" name="movieTitle" value="<%= movieTitle %>" />
+          <input type="hidden" name="notes" value="Not currently streaming" />
+          <button class="btn btn-green" type="submit">📋 Save to Watchlist</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

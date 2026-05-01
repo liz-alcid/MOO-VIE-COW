@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search History — MOO-vie Cow 🐄</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🐄 MOO-vie Cow</a>
+    <a href="/watchlist">📋 My Watchlist</a>
+    <a href="/movies/history">🕓 History</a>
+  </nav>
+
+  <div class="cow-deco" style="animation-delay: 2s;">🐄</div>
+
+  <div class="page">
+    <div class="card">
+      <h1 class="section-title">🕓 Search History</h1>
+
+      <% if (history.length === 0) { %>
+        <p class="empty">No searches yet — go find a movie! 🐄</p>
+      <% } else { %>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Movie / Show</th>
+              <th>Found On</th>
+              <th>Searched</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% history.forEach(entry => { %>
+              <tr>
+                <td><strong><%= entry.movieTitle %></strong></td>
+                <td>
+                  <% if (entry.foundOn) { %>
+                    <span class="badge"><%= entry.foundOn %></span>
+                  <% } else { %>
+                    <span class="badge not-found">Not Found</span>
+                  <% } %>
+                </td>
+                <td style="font-size:0.85rem; color:#999;">
+                  <%= entry.searchedAt.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) %>
+                </td>
+                <td>
+                  <!-- search again -->
+                  <form action="/movies/search" method="POST" style="display:inline;">
+                    <input type="hidden" name="movieTitle" value="<%= entry.movieTitle %>" />
+                    <button class="btn btn-sm btn-green" type="submit">▶ Again</button>
+                  </form>
+                  <!-- delete entry -->
+                  <form action="/movies/history/delete/<%= entry._id %>" method="POST" style="display:inline;">
+                    <button class="btn btn-sm btn-danger" type="submit">✕</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+  </div>
+
+</body>
+</html>

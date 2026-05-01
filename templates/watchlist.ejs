@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Watchlist — MOO-vie Cow 🐄</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🐄 MOO-vie Cow</a>
+    <a href="/watchlist">📋 My Watchlist</a>
+    <a href="/movies/history">🕓 History</a>
+  </nav>
+
+  <div class="cow-deco" style="animation-delay: 4s;">🐄</div>
+
+  <div class="page">
+
+    <div class="card">
+      <h1 class="section-title">📋 My Watchlist</h1>
+
+      <!-- add new item form -->
+      <form class="watchlist-form" action="/watchlist/add" method="POST" style="margin-bottom:28px;">
+        <input type="text" name="movieTitle" placeholder="Add a movie or show..." required />
+        <textarea name="notes" rows="2" placeholder="Notes (optional)"></textarea>
+        <button class="btn btn-green" type="submit">+ Add</button>
+      </form>
+
+      <!-- list -->
+      <% if (items.length === 0) { %>
+        <p class="empty">Your watchlist is empty. Add something above! 🐄</p>
+      <% } else { %>
+        <div class="wl-list">
+          <% items.forEach(item => { %>
+            <div class="wl-item <%= item.watched ? 'watched' : '' %>">
+              <div style="flex:1;">
+                <div class="wl-title"><%= item.movieTitle %></div>
+                <% if (item.notes) { %>
+                  <div class="wl-notes"><%= item.notes %></div>
+                <% } %>
+              </div>
+              <div class="wl-actions">
+                <!-- toggle watched -->
+                <form action="/watchlist/toggle/<%= item._id %>" method="POST" style="display:inline;">
+                  <button class="btn btn-sm <%= item.watched ? '' : 'btn-green' %>" type="submit">
+                    <%= item.watched ? '↩ Unwatch' : '✓ Watched' %>
+                  </button>
+                </form>
+                <!-- search -->
+                <form action="/movies/search" method="POST" style="display:inline;">
+                  <input type="hidden" name="movieTitle" value="<%= item.movieTitle %>" />
+                  <button class="btn btn-sm" type="submit">▶ Watch Now</button>
+                </form>
+                <!-- delete -->
+                <form action="/watchlist/delete/<%= item._id %>" method="POST" style="display:inline;">
+                  <button class="btn btn-sm btn-danger" type="submit">✕</button>
+                </form>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+
+</body>
+</html>
