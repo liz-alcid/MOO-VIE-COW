@@ -69,11 +69,13 @@ router.post('/search', async (req, res) => {
       if (serviceId && sourceIds.includes(serviceId)) {
         let directUrl = null;
 
-        for (const source of (movieDetails.sources || [])) {
-
-          if (source.source_id === serviceId) {
-            directUrl = source.web_url || source.ios_url || source.android_url || null;
-            break;
+        // Paramount+ links from WatchMode are stale, always use search instead
+        if (serviceName !== 'paramount-plus') {
+          for (const source of (movieDetails.sources || [])) {
+            if (source.source_id === serviceId) {
+              directUrl = source.web_url || source.ios_url || source.android_url || null;
+              break;
+            }
           }
         }
         
