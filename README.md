@@ -14,4 +14,4 @@
 
 **Deployed App Link:** [https://moo-vie-cow.onrender.com](https://moo-vie-cow.onrender.com)
 
-**AI Use:** [Claude Code](https://claude.ai/)
+**AI Use:** [Claude Code](https://code.claude.com/)
