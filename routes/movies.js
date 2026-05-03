@@ -13,7 +13,7 @@ const SERVICES = {
   'disney-plus':    { watchmode_id: 372, search_url: 'https://www.disneyplus.com/search/{}' },
   'hbo-max':        { watchmode_id: 387, search_url: 'https://www.max.com/' },
   'apple-tv':       { watchmode_id: 371, search_url: 'https://tv.apple.com/search?term={}' },
-  'paramount-plus': { watchmode_id: 444, search_url: 'https://www.paramountplus.com/search/{}/' }
+  'paramount-plus': { watchmode_id: 444, search_url: 'https://www.paramountplus.com/search/?query={}' }
 };
 
 const SERVICE_QUEUE = [
