@@ -13,7 +13,7 @@ const SERVICES = {
   'disney-plus':    { watchmode_id: 372, search_url: 'https://www.disneyplus.com/search/{}' },
   'hbo-max':        { watchmode_id: 387, search_url: 'https://www.max.com/' },
   'apple-tv':       { watchmode_id: 371, search_url: 'https://tv.apple.com/search?term={}' },
-  'paramount-plus': { watchmode_id: 444, search_url: 'https://www.paramountplus.com/search/{}' }
+  'paramount-plus': { watchmode_id: 444, search_url: 'https://www.paramountplus.com/search/?query={}' }
 };
 
 const SERVICE_QUEUE = [
@@ -26,7 +26,7 @@ const SERVICE_LABELS = {
   'hulu': 'Hulu',
   'amazon-prime': 'Amazon Prime',
   'disney-plus': 'Disney+',
-  'hbo-max': 'Max (HBO)',
+  'hbo-max': 'HBOMax',
   'apple-tv': 'Apple TV+',
   'paramount-plus': 'Paramount+'
 };
