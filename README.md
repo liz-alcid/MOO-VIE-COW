@@ -6,7 +6,7 @@
 
 **Description:** MOO-vie Cow lets users search for any movie or TV show and automatically opens it on whichever streaming service it's available on (Netflix, Hulu, Max, Disney+, Prime Video, Paramount+, Apple TV+). Users can also maintain a personal watchlist and view their search history.
 
-**YouTube Video Link:** (https://youtu.be/NRooIoRhe0k)
+**YouTube Video Link:** [MOO-vie Cow DEMO](https://youtu.be/NRooIoRhe0k)
 
 **APIs:** [WatchMode API](https://api.watchmode.com/) — Streaming availability data for movies and TV shows
 
@@ -14,4 +14,4 @@
 
 **Deployed App Link:** [https://moo-vie-cow.onrender.com](https://moo-vie-cow.onrender.com)
 
-**AI Use:** Claude (claude.ai)
+**AI Use:** [Claude Code](https://claude.ai/)
